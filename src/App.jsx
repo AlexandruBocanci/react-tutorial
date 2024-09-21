@@ -8,11 +8,17 @@ const callMe = () => {
   return (<div>
     <h1>Root component</h1>
     <UserProfile 
+    username='bob'
     age={20} 
     isLoggedIn={true} 
     favoriteFoods={[
       {
         name:'sushi',
+        id:'sushi'
+      },
+      {
+        name:'pizza',
+        id:'pizza'
       }
     ]}
     callMe={callMe}/>

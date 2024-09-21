@@ -1,10 +1,11 @@
+import PropTypes from 'prop-types';
 import { UserUsername } from './UserUsername.jsx'
 
 export function UserProfile(props) {
   props.callMe();
 
   return (<div id='user-profile'>
-    <UserUsername username='bob' trimmedUsername='bob' />
+    <UserUsername username={props.username}/>
     <b>Age:</b> <span>{props.age}</span>
     <section>
       <span>Favorite Foods:</span>
@@ -16,4 +17,15 @@ export function UserProfile(props) {
       </ul>
     </section>
   </div>);
+}
+
+UserProfile.propTypes = {
+  username: PropTypes.string.isRequired,
+  age: PropTypes.number.isRequired,
+  callMe: PropTypes.func.isRequired,
+  isLoggedIn: PropTypes.bool,
+  favoriteFoods: PropTypes.arrayOf(PropTypes.shape({
+    name:PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired
+    }))
 }
